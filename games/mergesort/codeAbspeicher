@@ -1,0 +1,25 @@
+function zahlenReiheBreakdown {
+    let untereGeteilteHälfte = zahlenReihe.slice(0,zahlenReihe.length/2)
+    let obereGeteilteHälfte = zahlenReihe.slice(-0, zahlenReihe.length/2)
+    if (untereGeteilteHälfte.length && obereGeteilteHälfte.length == 1) {
+        break;
+    }
+    else {
+        zahlenReiheBreakdown()
+    }
+}
+
+
+
+function insertionSort(array) {
+    for (let i = 0; i <= array.length; i++) {
+        for (let o = i; o >= 0; o--) {
+            if (array[o] < array[o-1]) {
+            let zahlenSpeicher = array[o]
+            array[o] = array[o-1]
+            array[o-1] = zahlenSpeicher
+            }
+        }
+    }
+    return array;
+}
