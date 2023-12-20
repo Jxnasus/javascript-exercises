@@ -1,3 +1,5 @@
+console.log("Placing wojak Pic")
+wojakPicture()
 async function boxClicked(boxIndex) {
     let gameboard = document.querySelector(".game-board")
     let soNichtFreundchen = document.querySelector(".soNichtFreundchen")
@@ -13,7 +15,7 @@ async function boxClicked(boxIndex) {
         soNichtFreundchen.classList.add("hidden")
     }
 
-    randomPicture(pictureList)
+    randomBFJPicture(pictureList)
 
     setBox(gameboard, boxIndex, "X")
 
@@ -73,13 +75,28 @@ function bfjPlacement() {
         setBox(gameboard, boxIndex, "O")
     }
 }
-const pictureList = ["../bfjpics/bfj-wins.jpg", "../bfjpics/Big_Pun_1999.jpg", "../bfjpics/big-pun-height-weight-age-body-statistics.jpg", "../bfjpics/Big-Pun.jpg", "../bfjpics/Big-Pun2.jpg", "../bfjpics/big-punisher.jpg", "../bfjpics/iconpic.jpg"]
+const pictureList = ["./bfjpics/bfj-wins.jpg", "./bfjpics/Big_Pun_1999.jpg", "./bfjpics/big-pun-height-weight-age-body-statistics.jpg", "./bfjpics/Big-Pun.jpg", "./bfjpics/Big-Pun2.jpg", "./bfjpics/big-punisher.jpg", "./bfjpics/iconpic.jpg"]
 
-function randomPicture(pictureList) {
+function randomBFJPicture(pictureList) {
     let randomPickedPicture = pictureList[Math.floor(Math.random() * 6)]
     let bigFatJoe = document.querySelector(".bigFatJoe")
     console.log(bigFatJoe)
     bigFatJoe.src = randomPickedPicture
+}
+
+
+function wojakPicture() {
+    const wojakPics = ["./wojakPics/wojak.jpg", "./wojakPics/wojakWin.jpg", "./wojakPics/wojakLose.jpg"]
+    let currentPicture = wojakPics[0];
+    if (Winner = "O") {
+        currentPicture = wojakPics[2]
+    }
+    if (Winner = "X") {
+        currentPicture = wojakPics[1]
+    }
+
+    let wojak = document.querySelector(".wojak")
+    wojak.src = currentPicture
 }
 
 function areAllBoxesFilled() {

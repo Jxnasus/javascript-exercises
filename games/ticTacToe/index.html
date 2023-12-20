@@ -14,18 +14,21 @@
         body {
             background-size: cover;
             background-repeat: no-repeat;
-            background-image: url('../bfjpics/bjfbackground.jpg');
+            background-image: url('./bfjpics/bjfbackground.jpg');
         }
     </style>
 
     <link rel="stylesheet" href=ticTacToe.css>
-    <script src="./script.js"></script>
-    <link rel="icon" type="image/jpg" href="../bfjpics/iconpic.jpg">
+    <script src="./script.js" defer></script>
+    <link rel="icon" type="image/jpg" href="./bfjpics/iconpic.jpg">
 </head>
 
 <body>
     <div class="heading">Tic Tac Toe gegen Big Fat Joe</div>
-    <div>
+
+    <div class="grid">
+        <div class="wojak" ;>
+        </div>
         <div class="game-board">
             <div onclick="boxClicked(0)" class="box"></div>
             <div onclick="boxClicked(1)" class="box"></div>
@@ -36,19 +39,22 @@
             <div onclick="boxClicked(6)" class="box"></div>
             <div onclick="boxClicked(7)" class="box"></div>
             <div onclick="boxClicked(8)" class="box"></div>
-            <div style="position:absolute; right: 200px; top: 150px;">
+            <div class="soNichtFreundchen hidden">
+                SO NICHT FREUNDCHEN
+                (anderes feld pls)
+            </div>
+        </div>
+
+        <div>
+            <div>
                 <img class="bigFatJoe"
                     alt="Big Fat Joe schläft gerade, tief und fest. Willst du ihn wecken? Dann platziere irgendwo ein X!">
             </div>
-            <div style="position: absolute; right: 200px; bottom: 250px" class="bfjText">
+            <div class="bfjText">
 
             </div>
-
         </div>
-        <div>
-            <div class="soNichtFreundchen hidden">SO NICHT FREUNDCHEN
-                (anderes feld pls)
-            </div>
+    </div>
 </body>
 
 </html>
