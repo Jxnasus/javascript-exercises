@@ -1,5 +1,3 @@
-console.log("Placing wojak Pic")
-wojakPicture()
 async function boxClicked(boxIndex) {
     let gameboard = document.querySelector(".game-board")
     let soNichtFreundchen = document.querySelector(".soNichtFreundchen")
@@ -15,7 +13,7 @@ async function boxClicked(boxIndex) {
         soNichtFreundchen.classList.add("hidden")
     }
 
-    randomBFJPicture(pictureList)
+    randomBFJPicture()
 
     setBox(gameboard, boxIndex, "X")
 
@@ -75,28 +73,13 @@ function bfjPlacement() {
         setBox(gameboard, boxIndex, "O")
     }
 }
-const pictureList = ["./bfjpics/bfj-wins.jpg", "./bfjpics/Big_Pun_1999.jpg", "./bfjpics/big-pun-height-weight-age-body-statistics.jpg", "./bfjpics/Big-Pun.jpg", "./bfjpics/Big-Pun2.jpg", "./bfjpics/big-punisher.jpg", "./bfjpics/iconpic.jpg"]
 
-function randomBFJPicture(pictureList) {
+function randomBFJPicture() {
+    const pictureList = ["./bfjpics/bfj-wins.jpg", "./bfjpics/Big_Pun_1999.jpg", "./bfjpics/big-pun-height-weight-age-body-statistics.jpg", "./bfjpics/Big-Pun.jpg", "./bfjpics/Big-Pun2.jpg", "./bfjpics/big-punisher.jpg", "./bfjpics/iconpic.jpg"]
     let randomPickedPicture = pictureList[Math.floor(Math.random() * 6)]
     let bigFatJoe = document.querySelector(".bigFatJoe")
     console.log(bigFatJoe)
     bigFatJoe.src = randomPickedPicture
-}
-
-
-function wojakPicture() {
-    const wojakPics = ["./wojakPics/wojak.jpg", "./wojakPics/wojakWin.jpg", "./wojakPics/wojakLose.jpg"]
-    let currentPicture = wojakPics[0];
-    if (Winner = "O") {
-        currentPicture = wojakPics[2]
-    }
-    if (Winner = "X") {
-        currentPicture = wojakPics[1]
-    }
-
-    let wojak = document.querySelector(".wojak")
-    wojak.src = currentPicture
 }
 
 function areAllBoxesFilled() {
@@ -137,19 +120,27 @@ function didPlayerWin(playerCharacter) {
         return true
     }
     return false
-
 }
+
+
 function declareWin(Winner) {
     let heading = document.querySelector(".heading")
+    let wojak = document.querySelector(".wojak")
     if (Winner == "X") {
         bfjText("X")
+        //Display WojakWin
+        wojak.style.backgroundImage = "url('./wojakPics/WojakWin.jpg')"
+        console.log(wojak)
         return heading.innerHTML = "Du hast Big Fat Joe besiegt!"
     }
     if (Winner == "O") {
         bfjText("O")
+        //Display WojakLose
+        wojak.style.backgroundImage = "url('./wojakPics/WojakLose.jpg')"
         return heading.innerHTML = "Big Fat Joe hat dich zerstört! RIP!"
     }
     if (Winner == "draw") {
+        //Display Nothing else than normal Wojak
         return heading.innerHTML = "Unentschieden!"
     }
 }
